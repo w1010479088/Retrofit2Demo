@@ -33,10 +33,6 @@ import retrofit2.http.Path;
  * [Retrofit Converter 反序化]源码
  */
 public class Example06 {
-    public interface BlogService {
-        @GET("blog/{id}")
-        Call<Result<Blog>> getBlog(@Path("id") int id);
-    }
 
     public static void main(String[] args) {
         Gson gson = new GsonBuilder()
@@ -50,9 +46,8 @@ public class Example06 {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-
         BlogService service = retrofit.create(BlogService.class);
-        Call<Result<Blog>> call = service.getBlog(2);
+        Call<Result<Blog>> call = service.getBlog3(2);
         call.enqueue(new Callback<Result<Blog>>() {
             @Override
             public void onResponse(Call<Result<Blog>> call, Response<Result<Blog>> response) {

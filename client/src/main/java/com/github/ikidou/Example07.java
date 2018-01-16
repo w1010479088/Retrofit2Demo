@@ -33,10 +33,6 @@ import retrofit2.http.POST;
  * [Retrofit Converter 序列化]源码
  */
 public class Example07 {
-    public interface BlogService {
-        @POST("blog")
-        Call<Result<Blog>> createBlog(@Body Blog blog);
-    }
 
     public static void main(String[] args) {
         Gson gson = new GsonBuilder()
